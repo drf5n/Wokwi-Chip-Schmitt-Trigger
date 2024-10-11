@@ -1,0 +1,15 @@
+{
+  "name": "SchmittTrigger",
+  "version": 1,
+  "description": "SchmittTrigger",
+  "author": "David Forrest",
+  "width": 30,
+  "height": 10,
+
+  "chips": [{ "id": "chip", "type": "github:drf5n/Wokwi-Chip-Schmitt-Trigger@1.0.0" }],
+
+  "pins": {
+      "IN": { "x": 1, "y": 5, "target": "chip:IN" },
+    "OUT": { "x": 29, "y": 5, "target": "chip:OUT" }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "schmitt-trigger",
+  "author": "David Forrest",
+  "pins": [
+    "IN",
+    "","",
+    "OUT"
+  ],
+  "controls": [
+        {
+      "id": "threshold",
+      "label": "threshold",
+      "type": "range",
+      "min": 0,
+      "max": 5,
+      "step": 0.1
+    },
+        {
+      "id": "hysteresis",
+      "label": "hysteresis+/-",
+      "type": "range",
+      "min": 0,
+      "max": 2,
+      "step": 0.01
+    }
+  ]
+}
