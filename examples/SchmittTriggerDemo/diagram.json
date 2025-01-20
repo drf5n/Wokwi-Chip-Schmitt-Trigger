@@ -18,7 +18,36 @@
       "left": -49,
       "attrs": { "travelLength": "100" }
     },
-    { "type": "chip-schmitt-trigger", "id": "chip1", "top": -133.38, "left": 62.4, "attrs": {} }
+    { "type": "chip-schmitt", "id": "chip1", "top": -133.38, "left": 62.4, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -214.8,
+      "left": 339.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -111.25,
+      "left": 355.2,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -224.4,
+      "left": -207.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -140.6,
+      "left": -221.65,
+      "rotate": 270,
+      "attrs": { "value": "1000" }
+    }
   ],
   "connections": [
     [ "uno:GND.2", "lcd1:GND", "black", [ "v38.3", "h-207.3", "v-518.4" ] ],
@@ -29,7 +58,14 @@
     [ "uno:A0", "pot1:SIG", "green", [ "v19.1", "h-226.6", "v-268" ] ],
     [ "uno:GND.2", "pot1:GND", "black", [ "v38.3", "h384.3", "v-307.2" ] ],
     [ "uno:3", "chip1:OUT", "green", [ "v-28.8", "h292", "v-115.2" ] ],
-    [ "pot1:SIG", "chip1:IN", "green", [ "h-28.8", "v-77.6" ] ]
+    [ "pot1:SIG", "chip1:IN", "green", [ "h-28.8", "v-77.6" ] ],
+    [ "chip1:OUT", "led1:A", "green", [ "v0", "h193.81" ] ],
+    [ "led1:C", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "pot1:GND", "green", [ "v0" ] ],
+    [ "pot1:SIG", "led2:A", "green", [ "h0" ] ],
+    [ "led2:C", "r2:2", "green", [ "v0" ] ],
+    [ "uno:GND.2", "r2:1", "black", [ "v38.3", "h-274.5" ] ],
+    [ "uno:7", "pot1:SIG", "green", [ "v-28.8", "h-15.6" ] ]
   ],
-  "dependencies": {}
+  "dependencies": { "chip-schmitt": "github:drf5n/Wokwi-Chip-Schmitt-Trigger@1.0.0" }
 }
