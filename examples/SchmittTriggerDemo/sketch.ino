@@ -1,9 +1,14 @@
-// https://wokwi.com/projects/411407134995176449
-
-
+// Schmitt Trigger demonstration
+// 
+// https://wokwi.com/projects/411421086186465281
+// 
+// Built from https://wokwi.com/projects/411407134995176449
+//
+// Using https://github.com/drf5n/Wokwi-Chip-Schmitt-Trigger
 
 const byte analogPin = A0;
 const byte digitalPin = 3;
+const byte digitalPinUnfiltered = 7;
 const double Vcc = 5.0;
 
 #include <Wire.h>
@@ -19,19 +24,24 @@ void setup()
   lcd.print("Schmitt Trigger Test");
   pinMode(analogPin, INPUT);
   pinMode(digitalPin, INPUT);
+  pinMode(digitalPinUnfiltered, INPUT);
 }
 
 void loop()
 {
   int pot = analogRead(analogPin);
   int trigger = digitalRead(digitalPin);
+  int unfiltered = digitalRead(digitalPinUnfiltered);
   static int lastPot = -1, lastTrigger = -1;
   static float highvolts, lowvolts;
 
   if (pot != lastPot) {
     lcd.setCursor(0, 1);
+    lcd.print("");
+    lcd.print(unfiltered);
+    lcd.print("->");
     lcd.print(trigger);
-    lcd.print("     ");
+    lcd.print(" ");
     lcd.print(pot);
     lcd.print(" ");
     lastPot = pot;
